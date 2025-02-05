@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lee\\source\\repos\\Sparta Dungeon\\Sparta Dungeon.csproj": {}
+    "C:\\Users\\lee\\source\\repos\\Sparta_Dungeon\\Sparta Dungeon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lee\\source\\repos\\Sparta Dungeon\\Sparta Dungeon.csproj": {
+    "C:\\Users\\lee\\source\\repos\\Sparta_Dungeon\\Sparta Dungeon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lee\\source\\repos\\Sparta Dungeon\\Sparta Dungeon.csproj",
+        "projectUniqueName": "C:\\Users\\lee\\source\\repos\\Sparta_Dungeon\\Sparta Dungeon.csproj",
         "projectName": "Sparta Dungeon",
-        "projectPath": "C:\\Users\\lee\\source\\repos\\Sparta Dungeon\\Sparta Dungeon.csproj",
+        "projectPath": "C:\\Users\\lee\\source\\repos\\Sparta_Dungeon\\Sparta Dungeon.csproj",
         "packagesPath": "C:\\Users\\lee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lee\\source\\repos\\Sparta Dungeon\\obj\\",
+        "outputPath": "C:\\Users\\lee\\source\\repos\\Sparta_Dungeon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

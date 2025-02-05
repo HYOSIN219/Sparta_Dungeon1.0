@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class Program
 {
@@ -140,6 +141,7 @@ public class Inventory
 {
     private List<Item> items = new List<Item>();
     private Program pro;
+    private int IsEquip = 0;    //장착완료 뜨는 변수. 0=기본값 1=장착완료! 2=장착해제!
 
     public Inventory(Program program)
     {
@@ -191,6 +193,7 @@ public class Inventory
 
     public void ShowInventory()
     {
+        IsEquip = 0;    //장착완료 뜨는 변수. 0=기본값 1=장착완료! 2=장착해제!
         Console.Clear();
         Console.WriteLine("인벤토리");
         Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
@@ -215,6 +218,7 @@ public class Inventory
         string input = Console.ReadLine();
         if (input == "1")
         {
+            Console.Clear();
             ManageEquipment(pro);
         }
         else if (input == "0")
@@ -226,7 +230,7 @@ public class Inventory
 
     private void ManageEquipment(Program pro)
     {
-        Console.Clear();
+        
         Console.WriteLine("장착 관리");
         Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
 
@@ -237,27 +241,40 @@ public class Inventory
         }
 
         Console.WriteLine("0. 나가기");
-        Console.Write(">>");
+        if(IsEquip == 1)                       //장착완료 뜨는 변수. 0=기본값 1=장착완료! 2=장착해제!
+        {
+            Console.WriteLine("장착 완료!");
+        }
+        else if(IsEquip == 2)
+         {
+            Console.WriteLine("장착 해제!");
+        }
+        else
+        {
 
+        }
+            Console.Write(">>");
         string input = Console.ReadLine();
         if (input == "0")
         {
-            Console.Clear();
+            IsEquip = 0;    //장착완료 뜨는 변수. 0=기본값 1=장착완료! 2=장착해제!
+             Console.Clear();
             pro.home();
         }
 
-        if (int.TryParse(input, out int index) && index >= 1 && index <= items.Count)
+        else if (int.TryParse(input, out int index) && index >= 1 && index <= items.Count)
         {
             items[index - 1].IsEquipped = !items[index - 1].IsEquipped;
-            Console.WriteLine(items[index - 1].IsEquipped ? "장착 완료!" : "장착 해제!");
-
-            
+            Console.WriteLine(items[index - 1].IsEquipped ? IsEquip = 1 : IsEquip = 2);
+            Console.Clear();
             ManageEquipment(pro);
         }
         else
         {
             Console.WriteLine("잘못된 입력입니다.");
+            Console.Clear();
             ManageEquipment(pro);
+
         }
     }
 
@@ -288,7 +305,7 @@ public class Item
     public int Price { get; set; }
     public bool IsEquipped { get; set; }
 
-    public Item(string name, string description, int attack,int defense,int quantity, int price)
+    public Item(string name, string description, int attack,int defense,int quantity, int price)    //아이템이 생성될때마다, 그 각자의 아이템에 성질을 부여하는것. 이름,공격력,가격 등등
     {
         Name = name;
         Description = description;
@@ -296,7 +313,7 @@ public class Item
         Defense = defense;
         Quantity = quantity;
         Price = price;
-        IsEquipped = false;
+        IsEquipped = false; //비장착 상태로 생성
 
 
     }
